@@ -1,0 +1,688 @@
+
+Sanika Deokar <deokarsanika814@gmail.com>
+3:58 AM (14 minutes ago)
+to 23023073
+
+# Angular User Authentication Application
+
+## Aim
+
+Create an Angular application to:
+
+* Register User
+* Login User
+* Show User Data on Profile Page
+
+---
+
+# STEP 1 — Install Node.js
+
+Download and install:
+
+[Node.js Official Website](https://nodejs.org?utm_source=chatgpt.com)
+
+Install:
+
+* LTS Version
+
+After installation check in terminal:
+
+```bash id="x9zjlwm"
+node -v
+npm -v
+```
+
+---
+
+# STEP 2 — Install Angular CLI
+
+Open terminal and run:
+
+```bash id="fx8l0w"
+npm install -g @angular/cli
+```
+
+Check Angular installation:
+
+```bash id="p0gj2w"
+ng version
+```
+
+---
+
+# STEP 3 — Create Angular Project
+
+Run:
+
+```bash id="4tdn3y"
+ng new ang-app
+```
+
+It will ask:
+
+```text id="y7r7x8"
+Would you like to add Angular routing? → Yes
+Which stylesheet format would you like to use? → CSS
+```
+
+---
+
+# STEP 4 — Open Project
+
+Move inside folder:
+
+```bash id="jyxwt6"
+cd ang-app
+```
+
+Open VS Code:
+
+```bash id="5a9o8f"
+code .
+```
+
+---
+
+# STEP 5 — Run Angular Project
+
+Run:
+
+```bash id="mjlwm5"
+ng serve
+```
+
+Open browser:
+
+```text id="8z1e3u"
+http://localhost:4200
+```
+
+Angular default page appears.
+
+---
+
+# STEP 6 — Generate Components
+
+Open terminal in VS Code and run:
+
+```bash id="7qk0dw"
+ng g c register
+ng g c login
+ng g c profile
+```
+
+This creates:
+
+* Register Component
+* Login Component
+* Profile Component
+
+---
+
+# STEP 7 — Configure Routes
+
+Open:
+
+```text id="xmf9z2"
+src/app/app.routes.ts
+```
+
+Replace code with:
+
+```ts id="tjlwm3"
+import { Routes } from '@angular/router';
+
+import { Register } from './register/register';
+import { Login } from './login/login';
+import { Profile } from './profile/profile';
+
+export const routes: Routes = [
+
+  { path: '', component: Register },
+
+  { path: 'login', component: Login },
+
+  { path: 'profile', component: Profile }
+
+];
+```
+
+---
+
+# STEP 8 — Configure App
+
+Open:
+
+```text id="xk2p9s"
+src/app/app.config.ts
+```
+
+Replace with:
+
+```ts id="2w7j5n"
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes)
+  ]
+};
+```
+
+---
+
+# STEP 9 — Configure Main App
+
+Open:
+
+```text id="pt9r4m"
+src/app/app.ts
+```
+
+Replace with:
+
+```ts id="p8x3v9"
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+
+}
+```
+
+---
+
+# STEP 10 — App HTML
+
+Open:
+
+```text id="7p5r2t"
+src/app/app.html
+```
+
+Replace with:
+
+```html id="jlwm9u"
+<router-outlet></router-outlet>
+```
+
+---
+
+# STEP 11 — Register Component
+
+## register.ts
+
+Open:
+
+```text id="y5f0jq"
+src/app/register/register.ts
+```
+
+Replace with:
+
+```ts id="a8v9n2"
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [FormsModule, RouterLink],
+  templateUrl: './register.html',
+  styleUrl: './register.css'
+})
+export class Register {
+
+  user = {
+    name: '',
+    email: '',
+    password: ''
+  };
+
+  constructor(private router: Router) {}
+
+  registerUser() {
+
+    localStorage.setItem('user', JSON.stringify(this.user));
+
+    alert('Registration Successful');
+
+    this.router.navigate(['/login']);
+  }
+}
+```
+
+---
+
+## register.html
+
+Open:
+
+```text id="9r2m4p"
+src/app/register/register.html
+```
+
+Replace with:
+
+```html id="7t4k1x"
+<div class="container">
+
+    <h2>Register User</h2>
+
+    <form (ngSubmit)="registerUser()">
+
+        <input
+        type="text"
+        placeholder="Enter Name"
+        [(ngModel)]="user.name"
+        name="name"
+        required>
+
+        <input
+        type="email"
+        placeholder="Enter Email"
+        [(ngModel)]="user.email"
+        name="email"
+        required>
+
+        <input
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="user.password"
+        name="password"
+        required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p>
+        Already have account?
+        <a routerLink="/login">Login</a>
+    </p>
+
+</div>
+```
+
+---
+
+## register.css
+
+Open:
+
+```text id="f2t8q1"
+src/app/register/register.css
+```
+
+Replace with:
+
+```css id="k6w9x4"
+.container{
+    width: 450px;
+    margin: 80px auto;
+    padding: 45px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 25px;
+    color: #333;
+}
+
+input{
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #4a90e2;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: bold;
+}
+```
+
+---
+
+# STEP 12 — Login Component
+
+## login.ts
+
+Open:
+
+```text id="t8m3y5"
+src/app/login/login.ts
+```
+
+Replace with:
+
+```ts id="3w1n8p"
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './login.html',
+  styleUrl: './login.css'
+})
+export class Login {
+
+  email = '';
+  password = '';
+
+  constructor(private router: Router) {}
+
+  loginUser() {
+
+    const data:any = localStorage.getItem('user');
+
+    const user = JSON.parse(data);
+
+    if (
+      this.email == user.email &&
+      this.password == user.password
+    ) {
+
+      alert('Login Successful');
+
+      this.router.navigate(['/profile']);
+
+    } else {
+
+      alert('Invalid Email or Password');
+
+    }
+  }
+}
+```
+
+---
+
+## login.html
+
+Open:
+
+```text id="w6q3m1"
+src/app/login/login.html
+```
+
+Replace with:
+
+```html id="m9p4x2"
+<div class="container">
+
+    <h2>Login User</h2>
+
+    <form (ngSubmit)="loginUser()">
+
+        <input
+        type="email"
+        placeholder="Enter Email"
+        [(ngModel)]="email"
+        name="email"
+        required>
+
+        <input
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="password"
+        name="password"
+        required>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+</div>
+```
+
+---
+
+## login.css
+
+Open:
+
+```text id="1n5r8t"
+src/app/login/login.css
+```
+
+Replace with:
+
+```css id="9x2w7v"
+.container{
+    width: 450px;
+    margin: 80px auto;
+    padding: 45px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 25px;
+    color: #333;
+}
+
+input{
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #4a90e2;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+```
+
+---
+
+# STEP 13 — Profile Component
+
+## profile.ts
+
+Open:
+
+```text id="4v8m2p"
+src/app/profile/profile.ts
+```
+
+Replace with:
+
+```ts id="6t1q9w"
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-profile',
+  standalone: true,
+  imports: [],
+  templateUrl: './profile.html',
+  styleUrl: './profile.css'
+})
+export class Profile implements OnInit {
+
+  user:any;
+
+  ngOnInit(): void {
+
+    const data:any = localStorage.getItem('user');
+
+    this.user = JSON.parse(data);
+  }
+}
+```
+
+---
+
+## profile.html
+
+Open:
+
+```text id="5n2r7m"
+src/app/profile/profile.html
+```
+
+Replace with:
+
+```html id="8p4w1x"
+<div class="container">
+
+    <h2>User Profile</h2>
+
+    <p><b>Name:</b> {{user.name}}</p>
+
+    <p><b>Email:</b> {{user.email}}</p>
+
+</div>
+```
+
+---
+
+## profile.css
+
+Open:
+
+```text id="2q9t6v"
+src/app/profile/profile.css
+```
+
+Replace with:
+
+```css id="7m3x1p"
+.container{
+    width: 500px;
+    margin: 100px auto;
+    padding: 50px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 25px;
+    color: #4a90e2;
+}
+
+p{
+    font-size: 18px;
+    margin: 15px 0;
+}
+```
+
+---
+
+# STEP 14 — Global Background Styling
+
+Open:
+
+```text id="8r5m1t"
+src/styles.css
+```
+
+Replace with:
+
+```css id="4p9x2w"
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #4a90e2, #6dd5fa);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+```
+
+---
+
+# STEP 15 — Remove Angular Logo
+
+Delete:
+
+```text id="7v2m8q"
+public/favicon.ico
+```
+
+Open:
+
+```text id="9t4x1p"
+src/index.html
+```
+
+Remove:
+
+```html id="1m7q3w"
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+```
+
+Change:
+
+```html id="6p2x8t"
+<title>User Authentication System</title>
+```
+
+---
+
+# STEP 16 — Run Application
+
+Run:
+
+```bash id="5t9m1q"
+ng serve
+```
+
+Open browser:
+
+```text id="8x4p2w"
+http://localhost:4200
+```
+
+---
+
+# Output
+
+1. User Registration Page
+2. User Login Page
+3. Profile Page displaying user data
