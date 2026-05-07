@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PVG College Portal</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        body{
+            background:#f5f3f8;
+            font-family:Arial, sans-serif;
+        }
+
+        .main-container{
+            margin:40px;
+            background:white;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Sidebar */
+
+        .sidebar{
+            background:linear-gradient(to bottom,#f5b85d,#ebdb9a);
+            min-height:100vh;
+            color:white;
+            padding:25px;
+        }
+
+        .logo-box{
+            background:white;
+            color:#f5c75d;
+            width:90px;
+            height:90px;
+            border-radius:20px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:40px;
+            margin-bottom:40px;
+        }
+
+        .menu-item{
+            padding:12px;
+            margin-top:10px;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        .menu-item:hover{
+            background:rgba(255,255,255,0.2);
+        }
+
+        /* Top Navbar */
+
+        .top-bar{
+            padding:20px;
+        }
+
+        .search-box{
+            width:300px;
+            border-radius:30px;
+            border:none;
+            background:#f3f3f3;
+            padding:10px 20px;
+        }
+
+        .profile{
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+
+        .profile img{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+        }
+
+        /* Banner */
+
+        .banner{
+            background:linear-gradient(to right,#f6c553,#ffe08c);
+            border-radius:25px;
+            color:white;
+            padding:30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .banner img{
+            width:220px;
+        }
+
+        /* Cards */
+
+        .info-card{
+            background:white;
+            border-radius:20px;
+            padding:20px;
+            text-align:center;
+            box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .info-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .info-card i{
+            font-size:35px;
+            color:#f5955d;
+        }
+
+        /* Right Notice */
+
+        .notice-box{
+            background:white;
+            border-radius:20px;
+            padding:20px;
+            box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .course-card{
+            background:#f4ebff;
+            border-radius:20px;
+            padding:20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <div class="main-container row">
+
+        <!-- Sidebar -->
+
+        <div class="col-md-2 sidebar">
+
+            <div class="logo-box">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
+
+            <h4>PVG Portal</h4>
+
+            <div class="menu-item">
+                <i class="bi bi-grid"></i>
+                Dashboard
+            </div>
+
+            <div class="menu-item">
+                <i class="bi bi-person"></i>
+                Profile
+            </div>
+
+            <div class="menu-item">
+                <i class="bi bi-book"></i>
+                Courses
+            </div>
+
+            <div class="menu-item">
+                <i class="bi bi-calendar"></i>
+                Schedule
+            </div>
+
+            <div class="menu-item">
+                <i class="bi bi-bar-chart"></i>
+                Result
+            </div>
+
+            <div class="menu-item">
+                <i class="bi bi-bell"></i>
+                Notice
+            </div>
+
+        </div>
+
+        <!-- Main Content -->
+
+        <div class="col-md-10">
+
+            <!-- Top Bar -->
+
+            <div class="top-bar d-flex justify-content-between align-items-center">
+
+                <input type="text"
+                       class="search-box"
+                       placeholder="Search">
+
+                <div class="profile">
+
+        
+
+                    <div>
+                        <b>Srushti Deokar</b><br>
+                        <small>Third Year</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="p-4">
+
+                <!-- Banner -->
+
+                <div class="banner">
+
+                    <div>
+
+                        <p>May 7, 2026</p>
+
+                        <h2>
+                            Welcome Back, Srushti!
+                        </h2>
+
+                        <p>
+                            Always stay updated in your student portal.
+                        </p>
+
+                    </div>
+
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+
+                </div>
+
+                <!-- Finance + Notice -->
+
+                <div class="row mt-4">
+
+                    <!-- Left Cards -->
+
+                    <div class="col-md-8">
+
+                        <h4 class="mb-3">
+                            Student Information
+                        </h4>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+
+                                <div class="info-card">
+
+                                    <i class="bi bi-cash-stack"></i>
+
+                                    <h4 class="mt-3">
+                                        ₹10,000
+                                    </h4>
+
+                                    <p>Fees Paid</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="info-card">
+
+                                    <i class="bi bi-journal-bookmark"></i>
+
+                                    <h4 class="mt-3">
+                                        6
+                                    </h4>
+
+                                    <p>Courses</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="info-card">
+
+                                    <i class="bi bi-bar-chart-fill"></i>
+
+                                    <h4 class="mt-3">
+                                        8.9 CGPA
+                                    </h4>
+
+                                    <p>Performance</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Courses -->
+
+                        <h4 class="mt-5 mb-3">
+                            Enrolled Courses
+                        </h4>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <div class="course-card">
+
+                                    <h5>
+                                        Cloud Computing
+                                    </h5>
+
+                                    <p>
+                                        Unit I to Unit V completed
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="course-card">
+
+                                    <h5>
+                                        Web Technology
+                                    </h5>
+
+                                    <p>
+                                        Bootstrap and Angular ongoing
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right Notice -->
+
+                    <div class="col-md-4">
+
+                        <div class="notice-box">
+
+                            <h4>
+                                Daily Notice
+                            </h4>
+
+                            <hr>
+
+                            <p>
+                                Practical exams start from 5 May.
+                            </p>
+
+                            <p>
+                                Hackathon registrations are open.
+                            </p>
+
+                            <p>
+                                Assignment submission on Friday.
+                            </p>
+
+                            <p>
+                                Cloud Computing viva tomorrow.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>

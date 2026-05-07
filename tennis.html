@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Tennis</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4fff4;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #006400;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        header {
+            background: url('https://images.unsplash.com/photo-1542144582-1ba00456b5e3?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .player-card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .rules-section {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #006400;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .schedule-table {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">All About Tennis</a>
+
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#players">Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rules">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schedule">Grand Slams</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Tennis World</h1>
+        <p>Explore Famous Players, Rules and Grand Slam Events</p>
+    </header>
+
+    <!-- Famous Players Section -->
+    <section class="container my-5" id="players">
+        <h2 class="text-center mb-4 text-success">Famous Tennis Players</h2>
+
+        <div class="row g-4">
+
+            <!-- Federer -->
+            <div class="col-md-4">
+                <div class="card player-card shadow">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=600&auto=format&fit=crop"
+                        class="card-img-top" alt="Roger Federer">
+
+                    <div class="card-body text-center">
+                        <h4>Roger Federer</h4>
+
+                        <button class="btn btn-success"
+                            onclick="showAchievement('Roger Federer won 20 Grand Slam titles and is known for elegant gameplay.')">
+                            View Achievements
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nadal -->
+            <div class="col-md-4">
+                <div class="card player-card shadow">
+                    <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d8?q=80&w=600&auto=format&fit=crop"
+                        class="card-img-top" alt="Rafael Nadal">
+
+                    <div class="card-body text-center">
+                        <h4>Rafael Nadal</h4>
+
+                        <button class="btn btn-success"
+                            onclick="showAchievement('Rafael Nadal won 22 Grand Slam titles and is called the King of Clay.')">
+                            View Achievements
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Djokovic -->
+            <div class="col-md-4">
+                <div class="card player-card shadow">
+                    <img src="https://images.unsplash.com/photo-1571019613914-85f342c55f55?q=80&w=600&auto=format&fit=crop"
+                        class="card-img-top" alt="Novak Djokovic">
+
+                    <div class="card-body text-center">
+                        <h4>Novak Djokovic</h4>
+
+                        <button class="btn btn-success"
+                            onclick="showAchievement('Novak Djokovic has won multiple Grand Slams and held World No.1 ranking for record weeks.')">
+                            View Achievements
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="container my-5 rules-section" id="rules">
+        <h2 class="text-center text-success mb-4">Basic Rules of Tennis</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item">A tennis match can be played in singles or doubles format.</li>
+            <li class="list-group-item">Players score points as 15, 30, 40 and Game.</li>
+            <li class="list-group-item">A player must win at least 6 games to win a set.</li>
+            <li class="list-group-item">A match is usually best of 3 or best of 5 sets.</li>
+            <li class="list-group-item">The ball must stay within court boundaries during play.</li>
+        </ul>
+    </section>
+
+    <!-- Grand Slam Schedule -->
+    <section class="container my-5" id="schedule">
+        <h2 class="text-center text-success mb-4">Grand Slam Schedule</h2>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped schedule-table text-center">
+                <thead class="table-success">
+                    <tr>
+                        <th>Tournament</th>
+                        <th>Country</th>
+                        <th>Month</th>
+                        <th>Surface</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Australian Open</td>
+                        <td>Australia</td>
+                        <td>January</td>
+                        <td>Hard Court</td>
+                    </tr>
+
+                    <tr>
+                        <td>French Open</td>
+                        <td>France</td>
+                        <td>May</td>
+                        <td>Clay Court</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wimbledon</td>
+                        <td>England</td>
+                        <td>July</td>
+                        <td>Grass Court</td>
+                    </tr>
+
+                    <tr>
+                        <td>US Open</td>
+                        <td>USA</td>
+                        <td>August</td>
+                        <td>Hard Court</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 All About Tennis | Designed Using HTML, CSS, Bootstrap & JavaScript</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function showAchievement(message) {
+            alert(message);
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

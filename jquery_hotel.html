@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+
+    <!-- jQuery Mobile CDN -->
+    <link rel="stylesheet"
+    href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+    </script>
+
+    <style>
+        body{
+            font-family: Arial;
+        }
+
+        .menu-box{
+            background-color: orange;
+            color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        img{
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        h2{
+            color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+
+    <div data-role="header" data-theme="b">
+        <h1>Restaurant Menu</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <!-- Pizza -->
+        <div class="menu-box">
+            <h2>Pizza</h2>
+
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+
+            <a href="#pizza"
+               class="ui-btn ui-btn-b">
+               View Details
+            </a>
+        </div>
+
+        <!-- Burger -->
+        <div class="menu-box">
+            <h2>Burger</h2>
+
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+
+            <a href="#burger"
+               class="ui-btn ui-btn-b">
+               View Details
+            </a>
+        </div>
+
+        <!-- Pasta -->
+        <div class="menu-box">
+            <h2>Pasta</h2>
+
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9">
+
+            <a href="#pasta"
+               class="ui-btn ui-btn-b">
+               View Details
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Pizza Page -->
+<div data-role="page" id="pizza">
+
+    <div data-role="header" data-theme="b">
+        <h1>Pizza Details</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+
+        <h2>Cheese Pizza</h2>
+
+        <p>
+            Delicious cheese pizza with fresh toppings.
+        </p>
+
+        <p>
+            Price: ₹299
+        </p>
+
+        <a href="#home" class="ui-btn ui-btn-b">
+            Back
+        </a>
+
+    </div>
+</div>
+
+<!-- Burger Page -->
+<div data-role="page" id="burger">
+
+    <div data-role="header" data-theme="b">
+        <h1>Burger Details</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+
+        <h2>Veg Burger</h2>
+
+        <p>
+            Crispy burger with cheese and vegetables.
+        </p>
+
+        <p>
+            Price: ₹199
+        </p>
+
+        <a href="#home" class="ui-btn ui-btn-b">
+            Back
+        </a>
+
+    </div>
+</div>
+
+<!-- Pasta Page -->
+<div data-role="page" id="pasta">
+
+    <div data-role="header" data-theme="b">
+        <h1>Pasta Details</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9">
+
+        <h2>White Sauce Pasta</h2>
+
+        <p>
+            Creamy white sauce pasta with herbs.
+        </p>
+
+        <p>
+            Price: ₹249
+        </p>
+
+        <a href="#home" class="ui-btn ui-btn-b">
+            Back
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>
